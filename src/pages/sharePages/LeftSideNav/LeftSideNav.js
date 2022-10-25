@@ -15,7 +15,7 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-        <div className='pb-6 side-nav'>
+        <div className='pb-10 side-nav h-full sticky'>
             <h2 className='uppercase text-[#2e5c83] font-bold text-xl text-center border-b-2 py-6 mt'>All Courses</h2>
             {
                 courses.map(course => <p key={course.id}>
