@@ -12,7 +12,7 @@ const Main = () => {
                 <div className='md:col-span-2 lg:col-span-1'>
                     <LeftSideNav></LeftSideNav>
                 </div>
-                <div className='col-span-3 pr-[30px]'>
+                <div className='md:col-span-3 px-4  md:pr-[30px]'>
                     <Outlet></Outlet>
                 </div>
             </div>

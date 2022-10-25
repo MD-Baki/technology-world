@@ -38,8 +38,8 @@ const Header = () => {
                     <Link className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">Login</Link>
                     <div onClick={() => setToggleTheme(!toggleTheme)} className='pl-2'>
                         {
-                            toggleTheme ? <button className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 capitalize"><FaMoon className='mr-2' /> Dark</button> :
-                                <button className="btn bg-white hover:bg-white text-[#2e5c83] border-0 capitalize"><FaSun className='mr-2' /> Light</button>
+                            toggleTheme ? <button className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 capitalize"><FaMoon /> <span className='hidden md:inline-block pl-2'>Dark</span></button> :
+                                <button className="btn bg-white hover:bg-white text-[#2e5c83] border-0 capitalize"><FaSun /><span className='hidden md:inline-block pl-2'>Light</span></button>
                         }
                     </div>
                 </div>
