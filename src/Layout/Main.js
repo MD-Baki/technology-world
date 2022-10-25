@@ -8,8 +8,8 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className="container mx-auto grid md:grid-cols-4 gap-4">
-                <div>
+            <div className="container mx-auto grid md:grid-cols-5 lg:grid-cols-4 gap-4">
+                <div className='md:col-span-2 lg:col-span-1'>
                     <LeftSideNav></LeftSideNav>
                 </div>
                 <div className='col-span-3'>
