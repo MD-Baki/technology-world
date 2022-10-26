@@ -25,10 +25,6 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://technology-world-server.vercel.app/course/${params.id}`)
             },
             {
-                path: '/checkout/:id',
-                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
-            },
-            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -41,6 +37,11 @@ export const router = createBrowserRouter([
                 element: <Terms></Terms>
             }
         ]
+    },
+    {
+        path: '/checkout/:id',
+        element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
     },
     { path: '*', element: <NotFound></NotFound> }
 ])

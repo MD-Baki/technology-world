@@ -56,7 +56,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <Link to={`/checkout/${id}`} className='btn btn-block bg-[#2e5c83] hover:bg-[#2e5c83] border-0'>Get Premium Access</Link>
+                    <Link to={`/checkout/${id}`} className='btn btn-block bg-[#2e5c83] hover:bg-[#2e5c83] border-0 capitalize text-lg'>Enroll Now</Link>
                 </div>
             </div>
         </div>
