@@ -4,6 +4,7 @@ import Terms from "../../outhers/Terms/Terms";
 import CheckOut from "../../pages/CheckOut/CheckOut";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
+import NotFound from "../../pages/NotFound/NotFound";
 import Login from "../../pages/signIn/Login/Login";
 import Register from "../../pages/signIn/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -40,5 +41,6 @@ export const router = createBrowserRouter([
                 element: <Terms></Terms>
             }
         ]
-    }
+    },
+    { path: '*', element: <NotFound></NotFound> }
 ])

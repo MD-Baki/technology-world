@@ -32,7 +32,7 @@ const Header = () => {
                     </div>
                     <div className="flex items-center">
                         <img className='w-[30px] mr-2' src={logo} alt="" />
-                        <Link to='/' className="font-bold text-xl uppercase text-[#2e5c83]">Tech <span className='font-normal'>World</span></Link>
+                        <Link to='/' className="font-bold text-xl uppercase text-[#2e5c83]">Technology <span className='font-normal'>World</span></Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
