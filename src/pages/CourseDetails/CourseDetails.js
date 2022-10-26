@@ -4,7 +4,7 @@ import { FaAngleDoubleRight, FaCheckSquare, FaStar, FaStarHalfAlt } from "react-
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { course_name, course_photo, details, duration, rating, project, options, course_fee } = courseDetails;
+    const { id, course_name, course_photo, details, duration, rating, project, options, course_fee } = courseDetails;
     return (
         <div className='py-12'>
             <div className="text-[#2e5c83] text-center pb-8">
@@ -56,7 +56,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
                 <div className="card-footer">
-                    <Link className='btn btn-block bg-[#2e5c83] hover:bg-[#2e5c83] border-0'>Get Premium Access</Link>
+                    <Link to={`/checkout/${id}`} className='btn btn-block bg-[#2e5c83] hover:bg-[#2e5c83] border-0'>Get Premium Access</Link>
                 </div>
             </div>
         </div>

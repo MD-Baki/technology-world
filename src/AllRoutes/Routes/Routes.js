@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import CheckOut from "../../pages/CheckOut/CheckOut";
 import CourseDetails from "../../pages/CourseDetails/CourseDetails";
 import Courses from "../../pages/Courses/Courses";
+import Login from "../../pages/signIn/Login/Login";
+import Register from "../../pages/signIn/Register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +21,18 @@ export const router = createBrowserRouter([
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://technology-world-server.vercel.app/course/${params.id}`)
             },
+            {
+                path: '/checkout/:id',
+                element: <CheckOut></CheckOut>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            }
         ]
     }
 ])

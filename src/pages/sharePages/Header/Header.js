@@ -3,8 +3,11 @@ import React from 'react';
 import { FaAlignLeft, FaMoon, FaSun } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { useContext } from 'react';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
 
     const [toggleTheme, setToggleTheme] = useState(false);
 
@@ -35,7 +38,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">Login</Link>
+                    <Link className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">{user?.displayName}</Link>
                     <div onClick={() => setToggleTheme(!toggleTheme)} className='pl-2'>
                         {
                             toggleTheme ? <button className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 capitalize"><FaMoon /> <span className='hidden md:inline-block pl-2'>Dark</span></button> :
