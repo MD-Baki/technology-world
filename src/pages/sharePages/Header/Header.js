@@ -1,15 +1,20 @@
 import logo from '../../../images/logo.png';
 import React from 'react';
-import { FaAlignLeft, FaMoon, FaSun } from "react-icons/fa";
+import { FaAlignLeft, FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { useContext } from 'react';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
-
+    const { user, logout } = useContext(AuthContext)
     const [toggleTheme, setToggleTheme] = useState(false);
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
 
     return (
         <div className='bg-[#d6e6ee]'>
@@ -27,7 +32,7 @@ const Header = () => {
                     </div>
                     <div className="flex items-center">
                         <img className='w-[30px] mr-2' src={logo} alt="" />
-                        <Link to='/' className="font-bold text-xl uppercase text-[#2e5c83]">Technology <span className='font-normal'>World</span></Link>
+                        <Link to='/' className="font-bold text-xl uppercase text-[#2e5c83]">Tech <span className='font-normal'>World</span></Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -38,13 +43,30 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">{user?.displayName}</Link>
-                    <div onClick={() => setToggleTheme(!toggleTheme)} className='pl-2'>
+                    <div onClick={() => setToggleTheme(!toggleTheme)} className='pr-2'>
                         {
                             toggleTheme ? <button className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 capitalize"><FaMoon /> <span className='hidden md:inline-block pl-2'>Dark</span></button> :
                                 <button className="btn bg-white hover:bg-white text-[#2e5c83] border-0 capitalize"><FaSun /><span className='hidden md:inline-block pl-2'>Light</span></button>
                         }
                     </div>
+                    {
+                        user?.uid ?
+                            <>
+                                <Link
+                                    onClick={handleLogout}
+                                    className="btn btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mx-3">Log Out</Link>
+                                {user?.photoURL ?
+                                    <Link>
+                                        <img title={user?.displayName} src={user?.photoURL} alt="" className='rounded-full h-10' />
+                                    </Link> : <FaUserAlt></FaUserAlt>
+                                }
+                            </>
+                            : <>
+                                <Link to='/login' className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">
+                                    Login
+                                </Link>
+                            </>
+                    }
                 </div>
             </div>
         </div>

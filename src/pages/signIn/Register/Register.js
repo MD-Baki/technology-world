@@ -2,9 +2,56 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaMinus, FaGoogle, FaGithub } from "react-icons/fa";
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
+    const [accepted, setAccepted] = useState(false);
+    const { createUser, providerLogin, updateUserProfile } = useContext(AuthContext);
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                handleProfile(name, photoURL);
+            })
+            .catch(error => console.error(error));
+    }
+
+    const handleProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
+    }
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked);
+    }
 
     return (
         <div>
@@ -14,24 +61,24 @@ const Register = () => {
                         <h1 className="text-5xl font-bold">Register Now</h1>
                     </div>
                     <div className="card w-full">
-                        <div className="card-body">
+                        <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input name='name' type="text" placeholder="Name" className="input input-bordered" required />
+                                <input name='name' type="text" placeholder="Your Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
+                                    <span className="label-text">PhotoURL</span>
                                 </label>
-                                <input name='photoURL' type="text" placeholder="Photo URL" className="input input-bordered" required />
+                                <input name='photoURL' type="text" placeholder="Photo URL" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name='email' type="email" placeholder="Email" className="input input-bordered" required />
+                                <input name='email' type="email" placeholder="Your Email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -39,17 +86,16 @@ const Register = () => {
                                 </label>
                                 <input name='password' type="password" placeholder="Password" className="input input-bordered" required />
                             </div>
-
                             <div className="flex items-center">
-                                <input name='btn' id='callMe' type="checkbox" />
+                                <input onClick={handleAccepted} name='btn' id='callMe' type="checkbox" />
                                 <label htmlFor='callMe' className="label">
-                                    <span className="label-text font-bold ">Accept <Link to='/terms' className='text-amber-600'>Terms and condition</Link></span>
+                                    <span className="label-text">Accept <Link to='/terms' className='text-amber-500 font-bold'>Terms and condition</Link></span>
                                 </label>
                             </div>
-
                             <div className="form-control my-3">
-                                <button className="btn py-3 bg-[#2e5c83] hover:bg-[#2e5c83] border-0">Register</button>
+                                <button className="btn hover:bg-[#2e5c83] bg-[#2e5c83] border-0" disabled={!accepted}>Register</button>
                             </div>
+
                             <div className="sign-in">
                                 <div className='flex justify-center items-center font-bold'>
                                     <FaMinus />
@@ -57,7 +103,7 @@ const Register = () => {
                                     <FaMinus />
                                 </div>
                                 <div className='mt-4 grid grid-cols-2 gap-4'>
-                                    <Link className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
+                                    <Link onClick={handleGoogleSignIn} className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
                                         <FaGoogle className='mr-2' />Google
                                     </Link>
                                     <Link className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
@@ -66,7 +112,7 @@ const Register = () => {
                                 </div>
                             </div>
                             <p className='text-center pt-4 text-sm'>Already, have an account? <Link to='/login' className='font-bold'>Login Now</Link> </p>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
