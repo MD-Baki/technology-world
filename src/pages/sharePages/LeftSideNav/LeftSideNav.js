@@ -9,14 +9,14 @@ const LeftSideNav = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://technology-world-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => setCourses(data));
     }, [])
 
     return (
         <div className='pb-10 side-nav h-full'>
-            <h2 className='uppercase text-[#2e5c83] font-bold text-xl text-center border-b-2 py-6 mt'>All Courses</h2>
+            <h2 className='uppercase text-[#2e5c83] font-bold text-xl text-center border-b-2 py-8 mt'>All Courses</h2>
             {
                 courses.map(course => <p key={course.id}>
                     <NavLink

@@ -28,7 +28,7 @@ const Footer = () => {
                     </div>
                     <div className='flex items-center pb-2'>
                         <FaEnvelope className='mr-2' />
-                        <p>tachworld01@gmail.com</p>
+                        <p>bakimd77@gmail.com</p>
                     </div>
                     <div className='flex items-center pb-2'>
                         <FaMapMarkerAlt className='mr-2' />
