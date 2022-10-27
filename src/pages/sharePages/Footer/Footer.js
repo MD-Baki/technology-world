@@ -42,10 +42,10 @@ const Footer = () => {
                 <div className="font-bold">
                     <h4 className='text-xl pb-3'>Important Links</h4>
                     <div>
-                        <p className='mb-2'><Link>Home</Link></p>
-                        <p className='mb-2'><Link>Courses</Link></p>
-                        <p className='mb-2'><Link>FAQ</Link></p>
-                        <p><Link>Blog</Link></p>
+                        <p className='mb-2'><Link to='/'>Home</Link></p>
+                        <p className='mb-2'><Link to='/courses'>Courses</Link></p>
+                        <p className='mb-2'><Link to='/faq'>FAQ</Link></p>
+                        <p><Link to='/blog'>Blog</Link></p>
                     </div>
                 </div>
             </div>
