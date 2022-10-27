@@ -4,19 +4,24 @@ import sideBanner from '../../images/side-banner.png';
 import support from '../../images/suport.png';
 import join from '../../images/join.png';
 import video from '../../images/video.png';
+import seminar from '../../images/seminar.jpg';
 
 const Home = () => {
     return (
         <div className='py-12'>
             <div className="banner pb-8">
-                <div className="hero">
-                    <div className="hero-content flex-col lg:flex-row-reverse">
-                        <img src={sideBanner} className="max-w-sm" />
-                        <div>
-                            <h1 className="text-5xl font-bold text-[#2e5c83]">Build a beautiful future</h1>
-                            <p className="py-6">With experienced mentors and updated curriculum, Technology World is ready to advance your career.</p>
-                            <Link to='/courses' className="btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0">Courses</Link>
+                <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+                    <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+                        <h1 className="text-5xl font-bold leading-none sm:text-6xl text-[#2e5c83]"> Build a <span>beautiful</span> future
+                        </h1>
+                        <p className="mt-6 mb-8 text-lg sm:mb-12">With experienced mentors and updated curriculum, Technology World is ready to advance your career.</p>
+                        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+                            <Link className="px-8 py-3 text-lg font-semibold rounded">Get Started</Link>
+                            <Link to='/courses' className="px-8 py-3 text-lg font-semibold border rounded">Courses</Link>
                         </div>
+                    </div>
+                    <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+                        <img src={sideBanner} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
                     </div>
                 </div>
             </div>
@@ -45,6 +50,21 @@ const Home = () => {
                         <div className="card-body">
                             <h2 className="card-title">Class video</h2>
                             <p>Many times students do not understand some topics in the class, for them there is the advantage of class videos. So now the students can take the class safely. You can solve any problem yourself by watching the video in any difficulty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="">
+                <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+                    <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+                        <img src={seminar} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+                    </div>
+                    <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+                        <h1 className="text-4xl font-bold leading-none sm:text-4xl text-[#2e5c83]">Participate in free seminars</h1>
+                        <p className="mt-6 mb-8 text-lg sm:mb-12">Can't decide which course to take for freelancing? Join our free seminar. In these subject wise seminars you will know about the possibilities of each course. Moreover, by talking to the expert counselor present in the seminar, you can easily decide to choose the appropriate course.</p>
+                        <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+                            <Link className="px-8 py-3 text-lg font-semibold border rounded-lg">Time schedule of all seminars</Link>
                         </div>
                     </div>
                 </div>

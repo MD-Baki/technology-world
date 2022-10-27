@@ -1,7 +1,7 @@
 import logo from '../../../images/logo.png';
 import React from 'react';
 import { FaAlignLeft, FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { useContext } from 'react';
@@ -62,10 +62,10 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/' className='uppercase text-[#2e5c83] font-bold'>Home</Link></li>
-                        <li><Link to='/courses' className='uppercase text-[#2e5c83] font-bold'>Courses</Link></li>
-                        <li><Link to='/faq' className='uppercase text-[#2e5c83] font-bold'>FAQ</Link></li>
-                        <li><Link to='/blog' className='uppercase text-[#2e5c83] font-bold'>Blog</Link></li>
+                        <li><NavLink to='/home' className='uppercase font-bold'>Home</NavLink></li>
+                        <li><NavLink to='/courses' className='uppercase font-bold'>Courses</NavLink></li>
+                        <li><NavLink to='/faq' className='uppercase font-bold'>FAQ</NavLink></li>
+                        <li><NavLink to='/blog' className='uppercase font-bold'>Blog</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
