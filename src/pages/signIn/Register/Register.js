@@ -4,7 +4,7 @@ import { FaMinus, FaGoogle, FaGithub } from "react-icons/fa";
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false);
@@ -42,6 +42,17 @@ const Register = () => {
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
+    }
+
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -106,7 +117,7 @@ const Register = () => {
                                     <Link onClick={handleGoogleSignIn} className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
                                         <FaGoogle className='mr-2' />Google
                                     </Link>
-                                    <Link className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
+                                    <Link onClick={handleGithubSignIn} className='btn btn-block btn-outline hover:bg-[#2e5c83] border-[#2e5c83] border-2 text-[#2e5c83] capitalize'>
                                         <FaGithub className='mr-2' />Github
                                     </Link>
                                 </div>

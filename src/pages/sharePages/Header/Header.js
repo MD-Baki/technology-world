@@ -25,10 +25,11 @@ const Header = () => {
                             <FaAlignLeft className='mr-2'></FaAlignLeft>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to='/' className='uppercase text-[#2e5c83] font-bold'>Courses</Link></li>
-                            <li><Link className='uppercase text-[#2e5c83] font-bold'>FAQ</Link></li>
-                            <li><Link className='uppercase text-[#2e5c83] font-bold'>Blog</Link></li>
-                            <div>
+                            <li><Link to='/' className='uppercase text-[#2e5c83] font-bold'>Home</Link></li>
+                            <li><Link to='/courses' className='uppercase text-[#2e5c83] font-bold'>Courses</Link></li>
+                            <li><Link to='/faq' className='uppercase text-[#2e5c83] font-bold'>FAQ</Link></li>
+                            <li><Link to='/blog' className='uppercase text-[#2e5c83] font-bold'>Blog</Link></li>
+                            <div className='md:hidden' >
                                 {
                                     user?.uid ?
                                         <>
@@ -61,9 +62,10 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/' className='uppercase text-[#2e5c83] font-bold'>Courses</Link></li>
-                        <li><Link className='uppercase text-[#2e5c83] font-bold'>FAQ</Link></li>
-                        <li><Link className='uppercase text-[#2e5c83] font-bold'>Blog</Link></li>
+                        <li><Link to='/' className='uppercase text-[#2e5c83] font-bold'>Home</Link></li>
+                        <li><Link to='/courses' className='uppercase text-[#2e5c83] font-bold'>Courses</Link></li>
+                        <li><Link to='/faq' className='uppercase text-[#2e5c83] font-bold'>FAQ</Link></li>
+                        <li><Link to='/blog' className='uppercase text-[#2e5c83] font-bold'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -82,7 +84,7 @@ const Header = () => {
                                     <>
                                         <Link
                                             onClick={handleLogout}
-                                            className="btn btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mx-3">Log Out</Link>
+                                            className="btn btn bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3">Log Out</Link>
                                         {user?.photoURL ?
                                             <Link>
                                                 <img title={user?.displayName} src={user?.photoURL} alt="" className='rounded-full h-10' />
