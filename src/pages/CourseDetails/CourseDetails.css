@@ -1,0 +1,9 @@
+.corse-container {
+    position: relative;
+}
+
+.corse-container .download-btn {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+}
