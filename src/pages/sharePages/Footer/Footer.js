@@ -14,10 +14,10 @@ const Footer = () => {
                     </div>
                     <p className='pb-3'>We are ready to build your bright fyture.</p>
                     <div>
-                        <Link className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaFacebookF /></Link>
-                        <Link className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaInstagram /></Link>
-                        <Link className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaTwitter /></Link>
-                        <Link className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0'><FaLinkedinIn /></Link>
+                        <a href="https://www.facebook.com/" target='blank' className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaFacebookF /></a>
+                        <a href="https://www.instagram.com/" target='blank' className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaInstagram /></a>
+                        <a href="https://twitter.com/" target='blank' className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0 mr-3'><FaTwitter /></a>
+                        <a href="https://www.linkedin.com/" target='blank' className='btn rounded-full bg-[#2e5c83] hover:bg-[#2e5c83] border-0'><FaLinkedinIn /></a>
                     </div>
                 </div>
                 <div className="contact font-bold">

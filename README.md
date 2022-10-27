@@ -27,3 +27,4 @@
 * Use firebase authentication
 * Use React Route
 * Use Tailwind CSS
+* add pdf download 
